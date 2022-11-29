@@ -6,7 +6,7 @@ const mongoose = require("mongoose"); // connect to database
 const bodyParser = require("body-parser"); // get body content from a form
 const cors = require("cors"); //enable CORS
 require('body-parser-xml')(bodyParser);
-//const port = process.env.PORT || 8003;
+const port = process.env.PORT || 5000;
 // const corsOptions ={
 //   origin:"*", 
 //   credentials:true,            //access-control-allow-credentials:true
@@ -60,8 +60,10 @@ app.use('/api/notification', notificationRoutes);
 app.use('/api/blockuser', blockuserRoutes);
 app.use(bodyParser.xml());
 
- const server = app.listen(process.env.PORT || 5000, () => {
+const server = app.listen(port, '0.0.0.0', () => {
   const port = server.address().port;
   console.log(`Express is working on port ${port}`);
 });
+
+
 
