@@ -63,6 +63,7 @@ app.use(bodyParser.xml());
 const server = app.listen(port, '0.0.0.0', () => {
   const port = server.address().port;
   console.log(`Express is working on port ${port}`);
+  res.json('Express is working on port ${port}')
 });
 
 
